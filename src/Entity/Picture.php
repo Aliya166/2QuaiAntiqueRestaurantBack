@@ -20,6 +20,9 @@ class Picture
     #[ORM\Column(length: 128)]
     private ?string $slug = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageUrl = null;
+
     #[ORM\Column]
     private ?DateTimeImmutable $createdAt = null;
 
@@ -33,6 +36,18 @@ class Picture
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): static
+    {
+        $this->imageUrl = $imageUrl;
+
+        return $this;
     }
 
     public function getTitle(): ?string
